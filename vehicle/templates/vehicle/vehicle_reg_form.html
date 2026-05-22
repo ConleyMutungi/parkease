@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags static %}
+{% block title %}
+Vehicle Registration
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block content %}
+<div class="form-box card">
+  <form method="POST" novalidate class="vehicle_form">
+    {% csrf_token %} {{ form |crispy }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}
